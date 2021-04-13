@@ -66,7 +66,7 @@ public class Roles implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "roles")
-	@JsonIgnoreProperties({"roles"})
+	@JsonIgnoreProperties({"roles","habilidadeses","nombre","descripcion","dificultad","imagen","posicion"})
 	
 	public Set<Campeones> getCampeoneses() {
 		return this.campeoneses;

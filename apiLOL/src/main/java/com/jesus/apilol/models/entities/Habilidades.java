@@ -62,7 +62,7 @@ public class Habilidades implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnoreProperties({"habilidadeses"})
+	@JsonIgnoreProperties({"habilidadeses","roles","nombre","descripcion","dificultad","imagen","posicion"})
 	
 	@JoinColumn(name = "id_campeon")
 	public Campeones getCampeones() {

@@ -73,7 +73,7 @@ public class Campeones implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnoreProperties({"campeoneses"})
+	@JsonIgnoreProperties({"campeoneses","nombreRol"})
 	@JoinColumn(name = "id_rol")
 	public Roles getRoles() {
 		return this.roles;
@@ -129,7 +129,7 @@ public class Campeones implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "campeones")
-	@JsonIgnoreProperties({"campeones"})
+	@JsonIgnoreProperties({"campeones","nombreHabilidad","descripcionHabilidad","letraHabilidad"})
 	public Set<Habilidades> getHabilidadeses() {
 		return this.habilidadeses;
 	}
