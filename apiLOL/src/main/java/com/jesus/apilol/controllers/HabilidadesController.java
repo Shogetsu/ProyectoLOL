@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.jesus.apilol.models.entities.Campeones;
 import com.jesus.apilol.models.entities.Habilidades;
 import com.jesus.apilol.models.services.IHabilidadesService;
@@ -139,6 +140,11 @@ public class HabilidadesController {
 		
 		respuesta.put("mensaje", "La habilidad con id " + id + " ha sido borrado con éxito");
 		return new ResponseEntity<Map<String,Object>>(respuesta,HttpStatus.OK);
+	}
+	
+	@GetMapping("/campeon/{x}")
+	public List<Habilidades> show1(@PathVariable Integer x){
+		return habilidadesService.getHabilidadesCampeon(x);
 	}
 
 }
