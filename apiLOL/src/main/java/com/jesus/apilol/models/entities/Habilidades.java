@@ -82,7 +82,7 @@ public class Habilidades implements java.io.Serializable {
 		this.nombreHabilidad = nombreHabilidad;
 	}
 
-	@Column(name = "descripcion_habilidad", length = 200)
+	@Column(name = "descripcion_habilidad", length = 500)
 	public String getDescripcionHabilidad() {
 		return this.descripcionHabilidad;
 	}
