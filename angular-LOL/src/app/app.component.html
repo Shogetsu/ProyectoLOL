@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark mb-4">
+  <a class="navbar-brand" href="#">{{ title }}</a>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [routerLink]="['/campeones']"
+        [routerLinkActive]="['active']"
+        >Campeones</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [routerLink]="['/campeonesadd']"
+        [routerLinkActive]="['active']"
+        >Formulario</a
+      >
+    </li>
+  </ul>
+</nav>
+<div class="container-fluid"><router-outlet></router-outlet></div>

@@ -1,0 +1,18 @@
+<!-- <nav class="navbar navbar-light bg-light justify-content-between mt-3"></nav> -->
+
+<div class="row m-2">
+  <div
+    class="card-columns m-2"
+    *ngIf="campeones && campeones.length; else noCampeones"
+  >
+    <campeon-item
+      [campeon]="campeon"
+      class="card"
+      *ngFor="let campeon of campeones"
+    >
+    </campeon-item>
+  </div>
+</div>
+<ng-template #noCampeones>
+  <h3>No hay eventos disponibles</h3>
+</ng-template>

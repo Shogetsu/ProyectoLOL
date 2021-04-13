@@ -1,0 +1,26 @@
+<div class="card" *ngIf="campeon">
+  <div class="card-header bg-primary text-white">
+   {{ campeon.nombre }}
+  </div>
+  <div class="card-block p-3 text-center">
+   <img [src]="campeon.imagen" alt="" />
+   <div>{{ campeon.descripcion  }}</div>
+   <div>{{ campeon.posicion }}</div>
+   <div *ngIf="campeon.dificultad==1">Baja</div>
+   <div *ngIf="campeon.dificultad==2">Moderada</div>
+   <div *ngIf="campeon.dificultad==3">Alta</div>
+   <div *ngFor="let habilidad of campeon.habilidadeses">
+     {{habilidad.nombreHabilidad}}
+     {{habilidad.descripcionHabilidad}}
+     {{habilidad.letraHabilidad}}
+    </div>
+   <div>{{ campeon.roles.nombreRol }}</div>
+
+   <div>
+    <!-- <button type="button" class="btn btn-danger" (click)="goBack()">
+     Volver
+    </button> -->
+    <!-- <a class="btn btn-success" [routerLink]="['/products',1]">Producto 1</a> -->
+   </div>
+  </div>
+ </div>

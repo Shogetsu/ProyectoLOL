@@ -1,0 +1,8 @@
+<a [routerLink]="['/campeones', campeon.idCampeon]">
+  <img class="card-img-top" [src]="campeon.imagen" />
+  <div class="card-body">
+    <h4 class="card-title">
+      {{ campeon.nombre | titlecase }}
+    </h4>
+  </div>
+</a>
