@@ -17,11 +17,13 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jesus.apilol.models.entities.Campeones;
 import com.jesus.apilol.models.entities.Habilidades;
 import com.jesus.apilol.models.services.IHabilidadesService;
 //@CrossOrigin(origins= {"*"}, methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE, RequestMethod.OPTIONS}, allowedHeaders = {"Access-Control-Allow-Headers","Access-Control-Allow-Origin","Access-Control-Request-Method", "Access-Control-Request-Headers","Origin","Cache-Control", "Content-Type", "Authorization"})
@@ -84,6 +86,42 @@ public class HabilidadesController {
 		
 		respuesta.put("mensaje", "Habilidad creado correctamente");
 		respuesta.put("habilidad", habilidadNuevo);
+		return new ResponseEntity<Map<String,Object>>(respuesta,HttpStatus.CREATED);
+	}
+	
+	@PutMapping("{id}")
+	public ResponseEntity<?> update(@Valid @RequestBody Habilidades habilidad, BindingResult result, @PathVariable Integer id) {
+		Habilidades habilidadActual = habilidadesService.findById(id);
+		Habilidades habilidadActualizado = null;
+		Map<String, Object> respuesta = new HashMap<String, Object>();
+		
+		if(result.hasErrors()) {	// Si hay errores de validación de los campos
+			List<String> errores = result.getFieldErrors().stream()
+					.map(error->"El campo " + error.getField() + " : " + error.getDefaultMessage())
+					.collect(Collectors.toList());
+			respuesta.put("errores",errores);
+			return new ResponseEntity<Map<String,Object>>(respuesta,HttpStatus.BAD_REQUEST);			
+		}
+		
+		if(habilidadActual==null) { // Intentas actualizar un id que no existe
+			respuesta.put("mensaje", "El Identificador buscado no existe");
+			return new ResponseEntity<Map<String,Object>>(respuesta,HttpStatus.NOT_FOUND);
+		}
+				
+		try {
+			habilidadActual.setDescripcionHabilidad(habilidad.getDescripcionHabilidad());
+			habilidadActual.setNombreHabilidad(habilidad.getNombreHabilidad());
+			habilidadActual.setLetraHabilidad(habilidad.getLetraHabilidad());
+			habilidadActual.setCampeones(habilidad.getCampeones());
+			habilidadActualizado = habilidadesService.save(habilidadActual);
+		} catch (DataAccessException e) {	// Saltan errores si incumples algo en la base de datos
+			respuesta.put("mensaje", "Error al intentar actualiar sobre la base de datos");
+			respuesta.put("error", e.getMessage().concat(" : ").concat(e.getMostSpecificCause().getMessage()));
+			return new ResponseEntity<Map<String,Object>>(respuesta,HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		// Se ha creado todo correcto
+		respuesta.put("mensaje", "Habilidad actualizada correctamente");
+		respuesta.put("habilidad", habilidadActualizado);
 		return new ResponseEntity<Map<String,Object>>(respuesta,HttpStatus.CREATED);
 	}
 	
