@@ -1,18 +1,40 @@
 <!-- <nav class="navbar navbar-light bg-light justify-content-between mt-3"></nav> -->
 
 <div class="row m-2">
+  <form class="form-inline">
+    <input
+      class="form-control mr-sm-2"
+      type="text"
+      [(ngModel)]="search"
+      name="search"
+      placeholder="Search"
+      aria-label="Search"
+    />
+    <button
+      class="form-control mr-sm-2"
+      type="text"
+      (click)="filtroAsesinos()"
+      name="searchRol"
+      placeholder="Search"
+    >
+    Asesinos</button>
+
+    <!-- <a class="nav-link" href="#" (click)="filtroAsesinos()">Asesinos</a> -->
+  </form>
   <div
     class="card-columns m-2"
     *ngIf="campeones && campeones.length; else noCampeones"
   >
+
     <campeon-item
+      (deletedCampeon)="deleteCampeon(campeon)"
       [campeon]="campeon"
       class="card"
-      *ngFor="let campeon of campeones"
+      *ngFor="let campeon of campeones | campeonesFiltro: search | campeonesFiltrorol:searchRol "
     >
     </campeon-item>
   </div>
 </div>
 <ng-template #noCampeones>
-  <h3>No hay eventos disponibles</h3>
+  <h3>No hay campeones disponibles</h3>
 </ng-template>

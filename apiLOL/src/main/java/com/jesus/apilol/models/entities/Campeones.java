@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -62,8 +63,9 @@ public class Campeones implements java.io.Serializable {
 	}
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id_campeon", unique = true, nullable = false)
+	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="secuencia")
+    @SequenceGenerator(name="secuencia", sequenceName = "secuencia_campeones",allocationSize = 1)
 	public int getIdCampeon() {
 		return this.idCampeon;
 	}

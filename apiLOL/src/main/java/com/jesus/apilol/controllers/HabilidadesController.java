@@ -140,5 +140,10 @@ public class HabilidadesController {
 		respuesta.put("mensaje", "La habilidad con id " + id + " ha sido borrado con éxito");
 		return new ResponseEntity<Map<String,Object>>(respuesta,HttpStatus.OK);
 	}
+	
+	@GetMapping("/campeon/{x}")
+	public List<Habilidades> show1(@PathVariable Integer x){
+		return habilidadesService.getHabilidadesCampeon(x);
+	}
 
 }

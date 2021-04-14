@@ -9,9 +9,9 @@ export interface Campeon {
   posicion: string;
   roles: {
     idRol: number;
-    nombreRol: string;
+    nombreRol?: string;
   };
-  habilidadeses:Habilidad[]
+  habilidadeses?:Habilidad[]
 
 
  /* habilidadeses?: [

@@ -15,5 +15,7 @@ public interface IHabilidadesService {
     public Habilidades save(Habilidades habilidad);
 
     public void deleteById(Integer id);
+    
+    public List<Habilidades> getHabilidadesCampeon(Integer x);
 
 }

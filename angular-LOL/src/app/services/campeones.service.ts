@@ -15,7 +15,6 @@ export class CampeonesService {
   constructor(private http:HttpClient) { }
 
   getCampeones(): Observable<Campeon[]>{
-    //Se devuelve la llamada al servidor web
     return this.http.get<Campeon[]>(this.campeonURL);
   }
 
@@ -24,15 +23,23 @@ export class CampeonesService {
       map(resp => resp.campeon)
     );
   }
-
- /* getCampeon(id: number): Observable<Campeon> {
-    return this.http.get<CampeonResponse>(this.campeonURL+'/'+id).pipe(
-      map(resp => resp.campeon)
-    );
-  }*/
-
   getCampeon(id: number): Observable<Campeon> {
     return this.http.get<Campeon>(this.campeonURL+'/'+id);
+  }
+
+  deleteCampeon(id:number):Observable<void>{
+    return this.http.delete<void>(this.campeonURL+'/'+id);
+  }
+
+  // modifyCampeon(campeon:Campeon, id:number):Observable<Campeon>{
+  //   return this.http.put<CampeonResponse>(this.campeonURL+'/'+id, campeon).pipe(
+  //     map(resp => resp.campeon)
+  //   );
+  // }
+
+
+  modifyCampeon(campeon:Campeon, id:number):Observable<Campeon>{
+    return this.http.put<Campeon>(this.campeonURL+'/'+id, campeon);
   }
 
 }

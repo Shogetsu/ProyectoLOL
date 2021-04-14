@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Campeon } from '../interfaces/campeon';
+import { Habilidad } from '../interfaces/habilidad';
 import { CampeonesService } from '../services/campeones.service';
+import { HabilidadesService } from '../services/habilidades.service';
 
 @Component({
   selector: 'campeon-detail',
@@ -11,10 +13,12 @@ import { CampeonesService } from '../services/campeones.service';
 })
 export class CampeonDetailComponent implements OnInit {
   campeon!: Campeon;
+  habilidades!:Habilidad[];
 
   constructor(
     private router: Router,
     private campeonesService: CampeonesService,
+    private habilidadesService: HabilidadesService,
     private route: ActivatedRoute,
     private titleService: Title
   ) {}
@@ -27,8 +31,21 @@ export class CampeonDetailComponent implements OnInit {
           //this.titleService.setTitle('Angular Products | ' + this.campeon.nombre);
           console.log(this.campeon.nombre);
         },
-        (error) => this.router.navigate(['/campeones'])
+       // (error) => this.router.navigate(['/campeones'])
       );
     });
+
+    this.route.params.subscribe((params) => {
+      this.habilidadesService.getHabilidadCampeon(params.id).subscribe(
+        (hab) => {
+          this.habilidades = hab;
+        },
+       // (error) => this.router.navigate(['/campeones'])
+      );
+    });
+  }
+
+  goBack():void{
+    this.router.navigate(['/campeones']);
   }
 }

@@ -6,3 +6,9 @@
     </h4>
   </div>
 </a>
+<a [routerLink]="['/campeonesmodify', campeon.idCampeon]">
+  <button class="btn btn-primary col" (click)="modificarCampeon()">
+    Modificar
+  </button>
+</a>
+<button class="btn btn-danger col" (click)="deleteCampeon()">Borrar</button>
