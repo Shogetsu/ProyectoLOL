@@ -2,7 +2,6 @@ package com.jesus.apilol.models.services;
 
 import java.util.List;
 
-
 import com.jesus.apilol.models.entities.Habilidades;
 
 
@@ -16,7 +15,5 @@ public interface IHabilidadesService {
     public Habilidades save(Habilidades habilidad);
 
     public void deleteById(Integer id);
-    
-    public List<Habilidades> getHabilidadesCampeon(Integer x);
 
 }

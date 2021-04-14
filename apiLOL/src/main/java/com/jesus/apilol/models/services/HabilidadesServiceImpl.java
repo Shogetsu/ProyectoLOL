@@ -39,10 +39,4 @@ public class HabilidadesServiceImpl  implements IHabilidadesService{
     public void deleteById(Integer id) {
     	habilidadesDAO.deleteById(id);
     }
-    
-    @Override
-	@Transactional(readOnly=true)
-	public List<Habilidades> getHabilidadesCampeon(Integer x) {
-		return (List<Habilidades>) habilidadesDAO.getHabilidadesCampeon(x);
-	}
 }
