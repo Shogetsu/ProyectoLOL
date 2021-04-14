@@ -11,6 +11,7 @@ import { CampeonDetailComponent } from './campeon-detail/campeon-detail.componen
 import { CampeonModifyComponent } from './campeon-modify/campeon-modify.component';
 import { CampeonesFiltroPipe } from './pipes/campeones-filtro.pipe';
 import { CampeonesFiltrorolPipe } from './pipes/campeones-filtrorol.pipe';
+import { HabilidadesAddComponent } from './habilidades-add/habilidades-add.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CampeonesFiltrorolPipe } from './pipes/campeones-filtrorol.pipe';
     CampeonDetailComponent,
     CampeonModifyComponent,
     CampeonesFiltroPipe,
-    CampeonesFiltrorolPipe
+    CampeonesFiltrorolPipe,
+    HabilidadesAddComponent
   ],
   imports: [
     BrowserModule,

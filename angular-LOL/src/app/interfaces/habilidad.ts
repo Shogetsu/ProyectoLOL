@@ -3,4 +3,7 @@ export interface Habilidad {
   nombreHabilidad: string;
   descripcionHabilidad: string;
   letraHabilidad: string;
+  campeones: {
+    idCampeon: number;
+  };
 }

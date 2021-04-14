@@ -23,23 +23,21 @@
         </div>
         <label class="col-sm-2 col-form-label text-sm-right">Dificultad</label>
         <div class="col-sm-10">
-          <input
-            type="number"
-            min="1"
-            max="3"
-            class="form-control"
-            name="dificultad"
-            [(ngModel)]="newCampeon.dificultad"
-          />
+          <select id="dificultad" class="select-option">
+            <option class="option" value="1">Baja</option>
+            <option class="option" value="2">Moderada</option>
+            <option class="option" value="3">Alta</option>
+          </select>
         </div>
         <label class="col-sm-2 col-form-label text-sm-right">Posición</label>
         <div class="col-sm-10">
-          <input
-            type="text"
-            class="form-control"
-            name="posicion"
-            [(ngModel)]="newCampeon.posicion"
-          />
+          <select id="posicion" class="select-option">
+            <option class="option" value="Top">Top</option>
+            <option class="option" value="Jungla">Jungla</option>
+            <option class="option" value="Medio">Medio</option>
+            <option class="option" value="Adc">Ad Carry</option>
+            <option class="option" value="Support">Support</option>
+          </select>
         </div>
         <label class="col-sm-2 col-form-label text-sm-right">Rol</label>
         <div class="col-sm-10" *ngIf="roles && roles.length">
@@ -75,6 +73,7 @@
             [src]="newCampeon.imagen"
             alt=""
             class="img-thumbnail"
+            style="height: 200px"
             *ngIf="newCampeon.imagen"
           />
         </div>

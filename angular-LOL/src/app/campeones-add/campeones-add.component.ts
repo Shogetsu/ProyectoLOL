@@ -41,45 +41,15 @@ export class CampeonesAddComponent implements OnInit {
       roles: {
         idRol: 1,
         nombreRol: ''
-      },
-      habilidadeses: [
-        {
-          idHabilidad: 0,
-          nombreHabilidad: '',
-          descripcionHabilidad: '',
-          letraHabilidad: '',
-        },
-        {
-          idHabilidad: 0,
-          nombreHabilidad: '',
-          descripcionHabilidad: '',
-          letraHabilidad: '',
-        },
-        {
-          idHabilidad: 0,
-          nombreHabilidad: '',
-          descripcionHabilidad: '',
-          letraHabilidad: '',
-        },
-        {
-          idHabilidad: 0,
-          nombreHabilidad: '',
-          descripcionHabilidad: '',
-          letraHabilidad: '',
-        },
-        {
-          idHabilidad: 0,
-          nombreHabilidad: '',
-          descripcionHabilidad: '',
-          letraHabilidad: '',
-        },
-      ]
+      }
     };
     this.nombreImagen='';
   }
 
   addCampeon():void{
     this.newCampeon.roles.idRol = +((document.getElementById("rol") as HTMLInputElement).value);
+    this.newCampeon.dificultad = +((document.getElementById("dificultad") as HTMLInputElement).value);
+    this.newCampeon.posicion = ((document.getElementById("posicion") as HTMLInputElement).value);
     this.campeonesService.insertCampeon(this.newCampeon).subscribe(
       camp => {
         this.campeonAdded.emit(camp);

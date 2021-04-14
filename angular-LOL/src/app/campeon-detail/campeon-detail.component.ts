@@ -13,7 +13,7 @@ import { HabilidadesService } from '../services/habilidades.service';
 })
 export class CampeonDetailComponent implements OnInit {
   campeon!: Campeon;
-  habilidades!:Habilidad[];
+  habilidades!: Habilidad[];
 
   constructor(
     private router: Router,
@@ -28,10 +28,9 @@ export class CampeonDetailComponent implements OnInit {
       this.campeonesService.getCampeon(params.id).subscribe(
         (camp) => {
           this.campeon = camp;
-          //this.titleService.setTitle('Angular Products | ' + this.campeon.nombre);
-          console.log(this.campeon.nombre);
+          this.titleService.setTitle(this.campeon.nombre);
         },
-       // (error) => this.router.navigate(['/campeones'])
+        (error) => this.router.navigate(['/campeones'])
       );
     });
 
@@ -40,12 +39,13 @@ export class CampeonDetailComponent implements OnInit {
         (hab) => {
           this.habilidades = hab;
         },
-       // (error) => this.router.navigate(['/campeones'])
+        (error) => this.router.navigate(['/campeones'])
       );
     });
   }
 
-  goBack():void{
+  goBack(): void {
     this.router.navigate(['/campeones']);
   }
+
 }

@@ -4,6 +4,7 @@ import { CampeonDetailComponent } from './campeon-detail/campeon-detail.componen
 import { CampeonModifyComponent } from './campeon-modify/campeon-modify.component';
 import { CampeonesAddComponent } from './campeones-add/campeones-add.component';
 import { CampeonesListComponent } from './campeones-list/campeones-list.component';
+import { HabilidadesAddComponent } from './habilidades-add/habilidades-add.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'campeonesadd',
     component: CampeonesAddComponent,
+  },
+  {
+    path: 'habilidadesadd',
+    component: HabilidadesAddComponent,
   },
   {
     path: 'campeones/:id',

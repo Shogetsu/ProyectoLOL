@@ -3,7 +3,7 @@
    {{ campeon.nombre }}
   </div>
   <div class="card-block p-3 text-center">
-   <img [src]="campeon.imagen" alt="" />
+   <img [src]="campeon.imagen" style="height: 500px" alt="" />
    <div>{{ campeon.descripcion  }}</div>
    <div>{{ campeon.posicion }}</div>
    <div *ngIf="campeon.dificultad==1">Baja</div>
@@ -20,7 +20,7 @@
     <button type="button" class="btn btn-danger" (click)="goBack()">
      Volver
     </button>
-    <!-- <a class="btn btn-success" [routerLink]="['/products',1]">Producto 1</a> -->
+    <!-- <a class="btn btn-success" [routerLink]="['/campeones',1]">Posterior</a> -->
    </div>
   </div>
  </div>
