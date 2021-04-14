@@ -44,6 +44,7 @@
         <label class="col-sm-2 col-form-label text-sm-right">Rol</label>
         <div class="col-sm-10" *ngIf="roles && roles.length">
           <select
+            id="rol"
             class="select-option"
             #mySelect
             (change)="onOptionsSelected(mySelect.value)"

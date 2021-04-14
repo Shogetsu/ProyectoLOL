@@ -79,6 +79,7 @@ export class CampeonesAddComponent implements OnInit {
   }
 
   addCampeon():void{
+    this.newCampeon.roles.idRol = +((document.getElementById("rol") as HTMLInputElement).value);
     this.campeonesService.insertCampeon(this.newCampeon).subscribe(
       camp => {
         this.campeonAdded.emit(camp);
