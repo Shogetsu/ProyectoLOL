@@ -112,7 +112,7 @@ public class Campeones implements java.io.Serializable {
 		this.dificultad = dificultad;
 	}
 
-	@Column(name = "imagen", length = 200000)
+	@Column(name = "imagen", length = 1000000)
 	public String getImagen() {
 		return this.imagen;
 	}

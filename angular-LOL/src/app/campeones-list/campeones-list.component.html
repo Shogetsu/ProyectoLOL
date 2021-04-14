@@ -12,12 +12,46 @@
     />
     <button
       class="form-control mr-sm-2"
-      type="text"
-      (click)="filtroAsesinos()"
-      name="searchRol"
-      placeholder="Search"
+      (click)="filtroTodos()"
     >
-    Asesinos</button>
+      Todos
+    </button>
+    <button
+      class="form-control mr-sm-2"
+      (click)="filtroAsesinos()"
+    >
+      Asesinos
+    </button>
+    <button
+      class="form-control mr-sm-2"
+      (click)="filtroLuchadores()"
+    >
+      Luchadores
+    </button>
+    <button
+      class="form-control mr-sm-2"
+      (click)="filtroMagos()"
+    >
+      Magos
+    </button>
+    <button
+      class="form-control mr-sm-2"
+      (click)="filtroTiradores()"
+    >
+      Tiradores
+    </button>
+    <button
+      class="form-control mr-sm-2"
+      (click)="filtroApoyos()"
+    >
+      Apoyos
+    </button>
+    <button
+      class="form-control mr-sm-2"
+      (click)="filtroTanques()"
+    >
+      Tanques
+    </button>
 
     <!-- <a class="nav-link" href="#" (click)="filtroAsesinos()">Asesinos</a> -->
   </form>
@@ -25,12 +59,15 @@
     class="card-columns m-2"
     *ngIf="campeones && campeones.length; else noCampeones"
   >
-
     <campeon-item
       (deletedCampeon)="deleteCampeon(campeon)"
       [campeon]="campeon"
       class="card"
-      *ngFor="let campeon of campeones | campeonesFiltro: search | campeonesFiltrorol:searchRol "
+      *ngFor="
+        let campeon of campeones
+          | campeonesFiltro: search
+          | campeonesFiltrorol: searchRol
+      "
     >
     </campeon-item>
   </div>
