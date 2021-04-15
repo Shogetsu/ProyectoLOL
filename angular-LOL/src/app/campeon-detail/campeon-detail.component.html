@@ -1,26 +1,103 @@
-<div class="card" *ngIf="campeon">
-  <div class="card-header bg-primary text-white">
-   {{ campeon.nombre }}
-  </div>
-  <div class="card-block p-3 text-center">
-   <img [src]="campeon.imagen" style="height: 500px" alt="" />
-   <div>{{ campeon.descripcion  }}</div>
-   <div>{{ campeon.posicion }}</div>
-   <div *ngIf="campeon.dificultad==1">Baja</div>
-   <div *ngIf="campeon.dificultad==2">Moderada</div>
-   <div *ngIf="campeon.dificultad==3">Alta</div>
-   <div *ngFor="let habilidad of habilidades">
-     {{habilidad.nombreHabilidad}}
-     {{habilidad.descripcionHabilidad}}
-     {{habilidad.letraHabilidad}}
+<div class="container" *ngIf="campeon">
+  <div class="row">
+    <div class="col-sm">
+      <img [src]="campeon.imagen" class="rounded" style="height: 300px" />
     </div>
-   <div>{{ campeon.roles.nombreRol }}</div>
+    <div class="col-sm vl"></div>
+    <div class="col-sm" style="text-align: center; margin-top: 25px">
+      <h1 style="font-size: 75px">{{ campeon.nombre }}</h1>
+      <div *ngIf="campeon.posicion == 'Top'">
+        <h4>
+          Posición: <b>{{ campeon.posicion }} </b>
+          <img src="assets/top.png" class="rounded" style="height: 25px" />
+        </h4>
+      </div>
+      <div *ngIf="campeon.posicion == 'Jungla'">
+        <h4>
+          Posición: <b>{{ campeon.posicion }} </b>
+          <img src="assets/jungla.png" class="rounded" style="height: 25px" />
+        </h4>
+      </div>
+      <div *ngIf="campeon.posicion == 'Medio'">
+        <h4>
+          Posición: <b>{{ campeon.posicion }} </b>
+          <img src="assets/medio.png" class="rounded" style="height: 25px" />
+        </h4>
+      </div>
+      <div *ngIf="campeon.posicion == 'Adc'">
+        <h4>
+          Posición: <b>{{ campeon.posicion }} </b>
+          <img src="assets/inferior.png" class="rounded" style="height: 25px" />
+        </h4>
+      </div>
+      <div *ngIf="campeon.posicion == 'Support'">
+        <h4>
+          Posición: <b>{{ campeon.posicion }} </b>
+          <img src="assets/apoyo.png" class="rounded" style="height: 25px" />
+        </h4>
+      </div>
 
-   <div>
-    <button type="button" class="btn btn-danger" (click)="goBack()">
-     Volver
-    </button>
-    <!-- <a class="btn btn-success" [routerLink]="['/campeones',1]">Posterior</a> -->
-   </div>
+      <div *ngIf="campeon.dificultad == 1">
+        <h4>
+          Dificultad: <b>Baja </b>
+          <img src="assets/bajo.PNG" class="rounded" style="height: 25px" />
+        </h4>
+      </div>
+      <div *ngIf="campeon.dificultad == 2">
+        <h4>
+          Dificultad: <b>Moderada </b>
+          <img src="assets/moderado.PNG" class="rounded" style="height: 25px" />
+        </h4>
+      </div>
+      <div *ngIf="campeon.dificultad == 3">
+        <h4>
+          Dificultad: <b>Alta </b>
+          <img src="assets/alta.PNG" class="rounded" style="height: 25px" />
+        </h4>
+      </div>
+
+      <div>
+        <h4>
+          Rol: <b>{{ campeon.roles.nombreRol }}</b>
+        </h4>
+      </div>
+    </div>
   </div>
- </div>
+</div>
+<hr style="border-color: black; width: 85%" />
+
+<div class="container" *ngIf="campeon">
+  <div class="row">
+    <div class="col-sm">
+      {{ campeon.descripcion }}
+    </div>
+  </div>
+</div>
+<hr style="border-color: black; width: 85%" />
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+  </li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
+  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
+  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+</div>
+<!-- <div class="container" *ngIf="campeon">
+  <div class="row">
+    <div class="col-sm">
+      <div *ngFor="let habilidad of habilidades">
+        {{ habilidad.letraHabilidad }}
+        {{ habilidad.nombreHabilidad }}
+        {{ habilidad.descripcionHabilidad }}
+      </div>
+    </div>
+  </div>
+</div> -->
