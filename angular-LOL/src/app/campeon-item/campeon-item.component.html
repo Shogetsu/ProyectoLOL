@@ -1,14 +1,17 @@
-<a [routerLink]="['/campeones', campeon.idCampeon]">
-  <img class="card-img-top" [src]="campeon.imagen" />
-  <div class="card-body">
-    <h4 class="card-title">
-      {{ campeon.nombre | titlecase }}
-    </h4>
+<div class="col mb-4">
+  <div class="card h-100">
+    <a [routerLink]="['/campeones', campeon.idCampeon]">
+      <img class="card-img-top" [src]="campeon.imagen" />
+      <div class="card-body">
+        <h3 class="card-title" style="text-align: center">{{ campeon.nombre }}</h3>
+
+      </div>
+    </a>
+    <a [routerLink]="['/campeonesmodify', campeon.idCampeon]">
+      <button class="btn btn-primary col" (click)="modificarCampeon()">
+        Modificar
+      </button>
+    </a>
+    <button class="btn btn-danger col" (click)="deleteCampeon()">Borrar</button>
   </div>
-</a>
-<a [routerLink]="['/campeonesmodify', campeon.idCampeon]">
-  <button class="btn btn-primary col" (click)="modificarCampeon()">
-    Modificar
-  </button>
-</a>
-<button class="btn btn-danger col" (click)="deleteCampeon()">Borrar</button>
+</div>
