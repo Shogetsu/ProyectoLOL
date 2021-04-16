@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jesus.apilol.models.entities.Administradores;
 import com.jesus.apilol.models.entities.Campeones;
 import com.jesus.apilol.models.services.ICampeonesService;
+import com.jesus.apilol.models.services.IHabilidadesService;
 
 //@CrossOrigin(origins= {"*"}, methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE, RequestMethod.OPTIONS}, allowedHeaders = {"Access-Control-Allow-Headers","Access-Control-Allow-Origin","Access-Control-Request-Method", "Access-Control-Request-Headers","Origin","Cache-Control", "Content-Type", "Authorization"})
 @RestController
